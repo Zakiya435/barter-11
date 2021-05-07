@@ -32,7 +32,7 @@ import db from '../config'
             db.collection('users').where('emailId','==',this.state.recieverId).get()
             .then(snapShot=>{
                 snapShot.forEach(doc=>{
-                    this.setState({recieverName:doc.data().firstName,recieverContact:doc.data().contact,recieverAddress:doc.data().address});
+                    this.setState({recieverName:doc.data().firstName,recieverContact:doc.data().contact,recieverAddress:doc.data().address,currencyCode:doc.data().currencyCode});
                 })
             });
             db.collection('requestedItems').where('request_Id','==',this.state.requestId).get()
@@ -100,6 +100,9 @@ import db from '../config'
                         </Card>
                         <Card>
                             <Text style = {{fontSize:15, fontWeight:"bold"}}>Address:{this.state.address}</Text>
+                        </Card>
+                        <Card>
+                            <Text style = {{fontSize:15, fontWeight:"bold"}}>Currency:{this.state.currencyCode}</Text>
                         </Card>
 
                     </Card>
