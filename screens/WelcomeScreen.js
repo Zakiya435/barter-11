@@ -15,6 +15,7 @@ export default class WelcomeScreen extends Component{
             mobileNumber:'',
             address:'',
             confirmPassword:'',
+            currencyCode: ''
         }
     }
 
@@ -94,6 +95,16 @@ export default class WelcomeScreen extends Component{
                                     })
                                 }}
                                 />
+                                <TextInput
+                                    style={styles.formTextInput}
+                                    placeholder ={"Country currency code"}
+                                    maxLength ={8}
+                                    onChangeText={(text)=>{
+                                    this.setState({
+                                        currencyCode: text
+                                    })
+                                    }}
+                                    />
 
                                 <View style={styles.modalBackButton}>
                                     <TouchableOpacity style = {styles.registerButton}
